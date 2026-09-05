@@ -1,0 +1,42 @@
+// At the top:
+import static fgp.game.bodies.BodyConstants.*;
+
+		char[][] map = null;
+		if (level == 1) {
+			map = new char[][]{
+					{S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S},
+					{S,W,S,S,S,S,S,S,S,S,S,S,S,S,S,S},
+					{S,W,S,S,S,S,S,S,S,S,S,S,S,S,S,S},
+					{S,W,S,S,S,W,S,S,S,S,W,S,S,S,S,S},
+					{S,W,W,W,W,W,S,S,S,S,W,S,S,S,S,S},
+					{S,S,S,S,S,S,S,S,S,S,W,W,W,S,S,S},
+					{S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S},
+					{S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S},
+					{S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S},
+					{S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S},
+					{S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S},
+					{S,S,S,S,S,S,S,S,S,S,S,S,S,S,S,S}
+			};
+		} 
+
+// You can add another else if, for each of your levels in the game.
+
+
+		// swap the i's and j's.
+		map = Helpers.transpose(map);
+
+		for (int i = 0; i < game.getXSize(); i++) {
+			for (int j = 0; j < game.getYSize(); j++) {
+				switch(map[i][j]) {
+				case S:
+					// space doesn't need anything
+					break;
+				case W:
+					Brick b = new Brick(game, i, j);
+					addBody(b);
+					break;
+					
+					// add case-s for each of the types of Bodies in your game.
+				}
+			}
+		}
